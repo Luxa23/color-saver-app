@@ -1,7 +1,8 @@
 import { colors } from './db';
 import StyledColorCard from './components/StyledColorCard';
-import StyledColorTag from './components/StyledColorTag';
+
 import StyledColorCardWrapper from './components/StyledColorCardWrapper';
+import ColorTag from './components/ColorTag';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         {colors.map(color => {
           return (
             <StyledColorCard backgroundColor={color}>
-              <StyledColorTag>{color}</StyledColorTag>
+              <ColorTag color={color}>{color}</ColorTag>
             </StyledColorCard>
           );
         })}
