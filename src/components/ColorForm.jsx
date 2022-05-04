@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import StyledForm from './StyledForm';
 
 export default function ColorForm({ onSubmit }) {
   const [color, setColor] = useState('#FFCDB2');
 
   return (
-    <form
+    <StyledForm
       action=""
       onSubmit={event => {
         event.preventDefault();
@@ -15,7 +16,7 @@ export default function ColorForm({ onSubmit }) {
       <input type="color" value={color} onChange={handleChange}></input>
       <input type="text" value={color} onChange={handleChange}></input>
       <button type="submit">Add color</button>
-    </form>
+    </StyledForm>
   );
 
   function handleChange(event) {
