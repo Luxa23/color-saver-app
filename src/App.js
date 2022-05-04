@@ -1,21 +1,9 @@
 import { useState } from 'react';
 import { COLORS } from './db';
-import StyledColorCard from './components/StyledColorCard';
+
 import StyledColorCardWrapper from './components/StyledColorCardWrapper';
 import ColorForm from './components/ColorForm';
-
-function ColorCard({ color }) {
-  return (
-    <StyledColorCard backgroundColor={color}>
-      <span onClick={handleClick} color={color}>
-        {color}
-      </span>
-    </StyledColorCard>
-  );
-  function handleClick() {
-    navigator.clipboard.writeText(color);
-  }
-}
+import ColorCard from './components/ColorCard';
 
 function App() {
   const localStorageValues = JSON.parse(window.localStorage.getItem('hexcode'));
@@ -33,6 +21,7 @@ function App() {
     </>
   );
   function handleSubmit(newColor) {
+    console.log(newColor);
     const newColorList = [newColor, ...colorList];
     localStorage.setItem('hexcode', JSON.stringify(newColorList));
     setColorList(newColorList);

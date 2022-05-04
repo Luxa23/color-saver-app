@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 export default function ColorForm({ onSubmit }) {
   const [color, setColor] = useState('#FFCDB2');
@@ -8,7 +9,7 @@ export default function ColorForm({ onSubmit }) {
       action=""
       onSubmit={event => {
         event.preventDefault();
-        onSubmit(color);
+        onSubmit({ id: nanoid(), hexCode: color });
       }}
     >
       <input type="color" value={color} onChange={handleChange}></input>
