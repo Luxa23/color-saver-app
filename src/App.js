@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { COLORS } from './db';
 import StyledColorCard from './components/StyledColorCard';
 import StyledColorCardWrapper from './components/StyledColorCardWrapper';
-import ColorTag from './components/ColorTag';
 import ColorForm from './components/ColorForm';
 
 function ColorCard({ color }) {
   return (
     <StyledColorCard backgroundColor={color}>
-      <ColorTag>{color}</ColorTag>
+      <span onClick={handleClick} color={color}>
+        {color}
+      </span>
     </StyledColorCard>
   );
+  function handleClick() {
+    navigator.clipboard.writeText(color);
+  }
 }
 
 function App() {
