@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { colors } from './db';
+import { COLORS } from './db';
 import StyledColorCard from './components/StyledColorCard';
 import StyledColorCardWrapper from './components/StyledColorCardWrapper';
 import ColorTag from './components/ColorTag';
@@ -26,13 +26,13 @@ function ColorForm({ onSubmit }) {
 }
 
 function App() {
-  const [colorList, setColorList] = useState(colors);
+  const [colorList, setColorList] = useState(COLORS);
   return (
     <>
       <h1>Color Saver</h1>
       <StyledColorCardWrapper>
         <ColorForm onSubmit={handleSubmit} />
-        {colors.map(color => {
+        {colorList.map(color => {
           return (
             <StyledColorCard backgroundColor={color}>
               <ColorTag color={color}>{color}</ColorTag>
