@@ -1,24 +1,30 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import { COLORS } from './db';
 import StyledColorCard from './components/StyledColorCard';
 import StyledColorCardWrapper from './components/StyledColorCardWrapper';
 import ColorTag from './components/ColorTag';
 import ColorForm from './components/ColorForm';
 
+function ColorCard({ color }) {
+  return (
+    <StyledColorCard backgroundColor={color}>
+      <ColorTag>{color}</ColorTag>
+    </StyledColorCard>
+  );
+}
+
 function App() {
   const localStorageValues = JSON.parse(window.localStorage.getItem('hexcode'));
   const [colorList, setColorList] = useState(localStorageValues ?? COLORS);
+
   return (
     <>
       <h1>Color Saver</h1>
       <StyledColorCardWrapper>
         <ColorForm onSubmit={handleSubmit} />
-        {colorList.map(color => {
-          return (
-            <StyledColorCard backgroundColor={color}>
-              <ColorTag color={color}>{color}</ColorTag>
-            </StyledColorCard>
-          );
+        {colorList.map(colorObject => {
+          return <ColorCard color={colorObject.hexCode}></ColorCard>;
         })}
       </StyledColorCardWrapper>
     </>
