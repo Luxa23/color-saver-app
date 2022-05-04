@@ -6,7 +6,8 @@ import ColorTag from './components/ColorTag';
 import ColorForm from './components/ColorForm';
 
 function App() {
-  const [colorList, setColorList] = useState(COLORS);
+  const localStorageValues = JSON.parse(window.localStorage.getItem('hexcode'));
+  const [colorList, setColorList] = useState(localStorageValues ?? COLORS);
   return (
     <>
       <h1>Color Saver</h1>
@@ -23,7 +24,9 @@ function App() {
     </>
   );
   function handleSubmit(newColor) {
-    setColorList([newColor, ...colorList]);
+    const newColorList = [newColor, ...colorList];
+    localStorage.setItem('hexcode', JSON.stringify(newColorList));
+    setColorList(newColorList);
   }
 }
 

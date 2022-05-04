@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export default function ColorForm({ onSubmit }) {
   const [color, setColor] = useState('#FFCDB2');
+
   return (
     <form
       action=""
