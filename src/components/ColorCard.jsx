@@ -6,6 +6,7 @@ export default function ColorCard({ color }) {
       <span onClick={handleClick} color={color}>
         {color}
       </span>
+      <button>x</button>
     </StyledColorCard>
   );
   function handleClick() {
