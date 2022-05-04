@@ -8,6 +8,13 @@ const StyledColorCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  span {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
 `;
 
 export default StyledColorCard;
