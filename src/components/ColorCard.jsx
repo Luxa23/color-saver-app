@@ -1,12 +1,14 @@
 import StyledColorCard from './StyledColorCard';
+import StyledColorTag from './StyledColorTag';
+import StyledButton from './StyledButton';
 
 export default function ColorCard({ color }) {
   return (
     <StyledColorCard backgroundColor={color}>
-      <span onClick={handleClick} color={color}>
+      <StyledColorTag onClick={handleClick} color={color}>
         {color}
-      </span>
-      <button>x</button>
+      </StyledColorTag>
+      <StyledButton>x</StyledButton>
     </StyledColorCard>
   );
   function handleClick() {
